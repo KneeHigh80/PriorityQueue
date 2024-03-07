@@ -12,9 +12,9 @@ import static org.junit.Assert.*;
  *
  * @author lukas
  */
-public class SortedArrayPriorityQueueTest {
+public class UnsortedArrayPriorityQueueTest {
     
-    public SortedArrayPriorityQueueTest() {
+    public UnsortedArrayPriorityQueueTest() {
     }
     
     @BeforeClass
@@ -34,12 +34,12 @@ public class SortedArrayPriorityQueueTest {
     }
 
     /**
-     * Test of head method, of class SortedArrayPriorityQueue.
+     * Test of head method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testHead() throws Exception {
         System.out.println("head");
-        SortedArrayPriorityQueue instance = null;
+        UnsortedArrayPriorityQueue instance = null;
         Object expResult = null;
         Object result = instance.head();
         assertEquals(expResult, result);
@@ -47,36 +47,36 @@ public class SortedArrayPriorityQueueTest {
     }
 
     /**
-     * Test of add method, of class SortedArrayPriorityQueue.
+     * Test of add method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testAdd() throws Exception {
         System.out.println("add");
         Object item = null;
         int priority = 0;
-        SortedArrayPriorityQueue instance = null;
+        UnsortedArrayPriorityQueue instance = null;
         instance.add(item, priority);
         
     }
 
     /**
-     * Test of remove method, of class SortedArrayPriorityQueue.
+     * Test of remove method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testRemove() throws Exception {
         System.out.println("remove");
-        SortedArrayPriorityQueue instance = null;
+        UnsortedArrayPriorityQueue instance = null;
         instance.remove();
         
     }
 
     /**
-     * Test of isEmpty method, of class SortedArrayPriorityQueue.
+     * Test of isEmpty method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testIsEmpty() {
         System.out.println("isEmpty");
-        SortedArrayPriorityQueue instance = null;
+        UnsortedArrayPriorityQueue instance = null;
         boolean expResult = false;
         boolean result = instance.isEmpty();
         assertEquals(expResult, result);
@@ -84,16 +84,16 @@ public class SortedArrayPriorityQueueTest {
     }
 
     /**
-     * Test of toString method, of class SortedArrayPriorityQueue.
+     * Test of toString method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testToString() {
         System.out.println("toString");
-        SortedArrayPriorityQueue instance = null;
+        UnsortedArrayPriorityQueue instance = null;
         String expResult = "";
         String result = instance.toString();
         assertEquals(expResult, result);
-        ;
+        
     }
     
 }

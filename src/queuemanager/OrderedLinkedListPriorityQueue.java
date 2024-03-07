@@ -9,16 +9,17 @@ public class OrderedLinkedListPriorityQueue<T> implements PriorityQueue<T>  {
     //Attributes of the OrderedLinkedListPriorityQueue 
     //Stores the PriorityItem and the pointer to its next node
     private ListNode<T> top;
-    //keeps track of the size of the list
+    //end of the list
     private ListNode<T> tail;
+    
+    private int size;
     
     //Constructor
     public OrderedLinkedListPriorityQueue() {
         //When initialized the list is empty and top will be null and also not pointing to any node.
         top = null;
         tail = null;
-        
-        
+        size = 0;
     }
     
     /*  Mehtod to add a Person to the List
@@ -50,7 +51,7 @@ public class OrderedLinkedListPriorityQueue<T> implements PriorityQueue<T>  {
             if (new_Node.getNext() == null) {
                 tail = new_Node;
             }
-        }
+        }size++;
     }
        
         
@@ -76,6 +77,7 @@ public class OrderedLinkedListPriorityQueue<T> implements PriorityQueue<T>  {
             throw new QueueUnderflowException();
         }
         top = top.getNext();
+        size--;
     }
 
     
@@ -98,7 +100,6 @@ public class OrderedLinkedListPriorityQueue<T> implements PriorityQueue<T>  {
         }
         result += "]";
         return result;
-        
     }
 
 }
