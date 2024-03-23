@@ -89,7 +89,7 @@ public class MaxHeapPriorityQueue<T> implements PriorityQueue<T>{
         }
     }
     
-    private void bubbledown() {
+    private void bubbleDown() {
         int index = 0;
         while(hasLeftChild(index)) {
             int biggerChildIndex = getLeftChildIndex(index);
@@ -115,6 +115,8 @@ public class MaxHeapPriorityQueue<T> implements PriorityQueue<T>{
             System.out.println("Storage full, resizing");
             resize();
         }
+        //incrementing the tailindex first and then entering the new Item at the end of the array
+        // Using bubbleUp() to maintain heap structure
         storage[++tailIndex] = new PriorityItem<>(item, priority);
         bubbleUp();
     }
@@ -133,6 +135,10 @@ public class MaxHeapPriorityQueue<T> implements PriorityQueue<T>{
         if (isEmpty()) {
             throw new QueueUnderflowException();
         }
+        storage[0] = storage[tailIndex]; // taking item at last index and putting it in the first index
+        storage[tailIndex] = null; // deleting the last index
+        tailIndex--; // adjusting the index to the right size
+        bubbleDown(); //maintaining heap structure by checking if parent > child
     }
 
     @Override
@@ -150,11 +156,5 @@ public class MaxHeapPriorityQueue<T> implements PriorityQueue<T>{
         storage = newStorage;
         capacity = newSize;
     }
-    
-    
-    
-    
-    
-    
-    
+
 }
