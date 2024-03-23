@@ -68,7 +68,6 @@ public class OrderedLinkedListPriorityQueue<T> implements PriorityQueue<T>  {
             throw new QueueUnderflowException();
         }
         return top.getListItem();
-        
     }
 
     @Override
