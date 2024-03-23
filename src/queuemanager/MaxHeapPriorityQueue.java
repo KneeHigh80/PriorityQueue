@@ -35,6 +35,8 @@ public class MaxHeapPriorityQueue<T> implements PriorityQueue<T>{
         return (PriorityItem<T>) storage[getParentIndex(index)];
     }
     
+    //Array calculations to get the right Index in a Heap Array
+    
     private int getLeftChildIndex(int parentIndex) {
         return 2 * parentIndex + 1;
     }
@@ -59,6 +61,13 @@ public class MaxHeapPriorityQueue<T> implements PriorityQueue<T>{
     
     private boolean hasParent(int index) {
         return getParentIndex(index) >= 0;
+    }
+    
+    // Routine to swap to nodes when the a child node is bigger then its parent 
+    private void swap(int indexOne, int indexTwo) {
+        Object temp = storage[indexOne];
+        storage[indexOne] = storage[indexTwo];
+        storage[indexTwo] = temp;
     }
     
     
@@ -95,6 +104,8 @@ public class MaxHeapPriorityQueue<T> implements PriorityQueue<T>{
             index = biggerChildIndex;
         }
     }
+    
+    // Abstract Methods from the interface
 
     @Override
     public void add(T item, int priority) throws QueueOverflowException {
@@ -104,6 +115,8 @@ public class MaxHeapPriorityQueue<T> implements PriorityQueue<T>{
             System.out.println("Storage full, resizing");
             resize();
         }
+        storage[++tailIndex] = new PriorityItem<>(item, priority);
+        bubbleUp();
     }
 
     @Override
@@ -138,12 +151,7 @@ public class MaxHeapPriorityQueue<T> implements PriorityQueue<T>{
         capacity = newSize;
     }
     
-    // Routine to swap to nodes when the a child node is bigger then its parent 
-    private void swap(int indexOne, int indexTwo) {
-        Object temp = storage[indexOne];
-        storage[indexOne] = storage[indexTwo];
-        storage[indexTwo] = temp;
-    }
+    
     
     
     
