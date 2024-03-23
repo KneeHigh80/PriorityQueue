@@ -65,9 +65,44 @@ public class UnorderedLinkedListPriorityQueue<T> implements PriorityQueue<T> {
 
     @Override
     public void remove() throws QueueUnderflowException {
+        //checks if List is  empty
+        if(isEmpty()){
+            throw new QueueUnderflowException();
+        }
+        // 
+        ListNode<T> current = top;
+        ListNode<T> previous = null;  // keepos track of the node before the current one
+        ListNode<T> toRemove = top;
+        ListNode<T> toRemovePrevious = null; // keeps track of the node before the to be removed node
         
+        int highestPriority = current.getItemPriority();
+        // finding the node with the highest Priority
+        while(current != null) {
+            if(current.getItemPriority() > highestPriority) {
+                highestPriority = current.getItemPriority(); // updating highest priority
+                toRemove = current;
+                toRemovePrevious = previous;
+            }
+            previous = current;
+            current = current.getNext();
+        }
+        
+        // removing the node
+        if(toRemove == top) {
+            top = top.getNext();
+            if (top == null) {
+                tail = null;
+            }
+        }else if(toRemovePrevious != null){
+            toRemovePrevious.setNext(toRemove.getNext());
+            if (toRemove == tail) {
+                tail = toRemovePrevious;
+            }
+        }
+        size --;
     }
-
+    
+    
     @Override
     public boolean isEmpty() {
         return top == null;
