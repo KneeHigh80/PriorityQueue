@@ -44,7 +44,7 @@ public class QueueManager {
                 System.out.println("Using unsorted linked list.");
                 break;
             case "h":
-                 q = new MaxHeapPriorityQueue<>();
+                q = new MaxHeapPriorityQueue<>(8);
                 System.out.println("Using a Heap.");
                 break;
             default:
