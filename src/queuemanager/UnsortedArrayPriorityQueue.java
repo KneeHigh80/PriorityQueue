@@ -11,7 +11,7 @@ public class UnsortedArrayPriorityQueue<T> implements PriorityQueue<T>{
      * I also will make use of the Core Object class and cast the 
      * Object later to the PriorityItem<T> when needed  
      */
-    //the actual object, the thing saved to the array
+    //The Array object where we save our items
     private Object[] storage;
     
     // size of the storage array
