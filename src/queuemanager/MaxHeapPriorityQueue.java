@@ -60,6 +60,41 @@ public class MaxHeapPriorityQueue<T> implements PriorityQueue<T>{
     private boolean hasParent(int index) {
         return getParentIndex(index) >= 0;
     }
+    
+    
+    /*
+    * To maintain a Heap property we need to be able to "bubble up" an Item if
+    * its Priority is bigger then its parent. 
+    * When we remove an Item,
+    * we place the Item at last index at the root index and then use the "bubble up" approach 
+    * for the Items in the array.
+    */
+    
+    // Routines to either bubble up or down
+    
+    private void bubbleUp() {
+        int index = tailIndex;
+        while (hasParent(index) && getParent(index).getPriority()  < ((PriorityItem<T>)storage[index]).getPriority()){
+            swap(getParentIndex(index), index);
+            index = getParentIndex(index);
+        }
+    }
+    
+    private void bubbledown() {
+        int index = 0;
+        while(hasLeftChild(index)) {
+            int biggerChildIndex = getLeftChildIndex(index);
+            if(hasRightChild(index) && getRightChild(index).getPriority() > getLeftChild(index).getPriority()) {
+                biggerChildIndex = getRightChildIndex(index);
+            }
+            if (((PriorityItem<T>)storage[index]).getPriority() < ((PriorityItem<T>)storage[biggerChildIndex]).getPriority()) {
+                swap(index, biggerChildIndex);
+            }else {
+                break;
+            }
+            index = biggerChildIndex;
+        }
+    }
 
     @Override
     public void add(T item, int priority) throws QueueOverflowException {
