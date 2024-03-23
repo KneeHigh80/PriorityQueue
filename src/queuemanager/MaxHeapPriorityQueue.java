@@ -109,7 +109,6 @@ public class MaxHeapPriorityQueue<T> implements PriorityQueue<T>{
 
     @Override
     public void add(T item, int priority) throws QueueOverflowException {
-        PriorityItem<T> current = new PriorityItem<>(item, priority);
         if (tailIndex + 1 >= capacity) {
             //doubling the array in size
             System.out.println("Storage full, resizing");
