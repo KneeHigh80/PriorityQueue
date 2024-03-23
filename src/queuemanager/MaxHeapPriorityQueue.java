@@ -111,7 +111,8 @@ public class MaxHeapPriorityQueue<T> implements PriorityQueue<T>{
         if (isEmpty()) {
             throw new QueueUnderflowException();
         }
-        return null;
+        PriorityItem<T> head = (PriorityItem<T>)storage[0];
+        return head.getItem();
     }
 
     @Override
