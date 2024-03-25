@@ -1,4 +1,7 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
+ */
 package queuemanager;
 
 import org.junit.After;
@@ -43,7 +46,8 @@ public class UnsortedArrayPriorityQueueTest {
         Object expResult = null;
         Object result = instance.head();
         assertEquals(expResult, result);
-        
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -56,7 +60,8 @@ public class UnsortedArrayPriorityQueueTest {
         int priority = 0;
         UnsortedArrayPriorityQueue instance = null;
         instance.add(item, priority);
-        
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -67,7 +72,8 @@ public class UnsortedArrayPriorityQueueTest {
         System.out.println("remove");
         UnsortedArrayPriorityQueue instance = null;
         instance.remove();
-        
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -80,7 +86,8 @@ public class UnsortedArrayPriorityQueueTest {
         boolean expResult = false;
         boolean result = instance.isEmpty();
         assertEquals(expResult, result);
-        
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -93,7 +100,8 @@ public class UnsortedArrayPriorityQueueTest {
         String expResult = "";
         String result = instance.toString();
         assertEquals(expResult, result);
-        
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
     
 }

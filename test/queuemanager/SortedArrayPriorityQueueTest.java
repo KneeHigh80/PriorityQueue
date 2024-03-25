@@ -14,6 +14,8 @@ import static org.junit.Assert.*;
  */
 public class SortedArrayPriorityQueueTest {
     
+    private SortedArrayPriorityQueue<String> instance;
+    
     public SortedArrayPriorityQueueTest() {
     }
     
@@ -27,6 +29,7 @@ public class SortedArrayPriorityQueueTest {
     
     @Before
     public void setUp() {
+        instance = new SortedArrayPriorityQueue<>(8);
     }
     
     @After
@@ -39,11 +42,12 @@ public class SortedArrayPriorityQueueTest {
     @Test
     public void testHead() throws Exception {
         System.out.println("head");
-        SortedArrayPriorityQueue instance = null;
-        Object expResult = null;
+        instance.add("low priority", 1);
+        instance.add("high priority", 10);
+        Object expResult = "high priority";
         Object result = instance.head();
         assertEquals(expResult, result);
-        
+
     }
 
     /**
@@ -52,11 +56,13 @@ public class SortedArrayPriorityQueueTest {
     @Test
     public void testAdd() throws Exception {
         System.out.println("add");
-        Object item = null;
-        int priority = 0;
-        SortedArrayPriorityQueue instance = null;
-        instance.add(item, priority);
-        
+        instance.add("lowest item", 1);
+        instance.add("middle item", 2);
+        instance.add("highest item", 3);
+        assertEquals("highest item", instance.head());
+        instance.remove();
+        assertEquals("middle item", instance.head());
+
     }
 
     /**
@@ -65,35 +71,40 @@ public class SortedArrayPriorityQueueTest {
     @Test
     public void testRemove() throws Exception {
         System.out.println("remove");
-        SortedArrayPriorityQueue instance = null;
+        instance.add("First item", 1);
+        instance.add("second item", 2);
         instance.remove();
-        
+        assertEquals("First item", instance.head());
+
     }
 
     /**
      * Test of isEmpty method, of class SortedArrayPriorityQueue.
      */
     @Test
-    public void testIsEmpty() {
+    public void testIsEmpty() throws QueueOverflowException {
         System.out.println("isEmpty");
-        SortedArrayPriorityQueue instance = null;
+        instance.add("item", 1);
         boolean expResult = false;
         boolean result = instance.isEmpty();
         assertEquals(expResult, result);
-        
+
     }
 
     /**
      * Test of toString method, of class SortedArrayPriorityQueue.
      */
     @Test
-    public void testToString() {
+    public void testToString() throws QueueOverflowException{
         System.out.println("toString");
-        SortedArrayPriorityQueue instance = null;
-        String expResult = "";
+        instance.add("item1", 10);
+        instance.add("item2", 5);
+        instance.add("item3", 1);
+        
+        String expResult = "[(item1, 10), (item2, 5), (item3, 1)]";
         String result = instance.toString();
         assertEquals(expResult, result);
-        ;
+
     }
     
 }

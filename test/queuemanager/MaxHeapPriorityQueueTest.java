@@ -46,7 +46,8 @@ public class MaxHeapPriorityQueueTest {
         int priority = 0;
         MaxHeapPriorityQueue instance = null;
         instance.add(item, priority);
-        
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -59,7 +60,8 @@ public class MaxHeapPriorityQueueTest {
         Object expResult = null;
         Object result = instance.head();
         assertEquals(expResult, result);
-        
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -70,7 +72,8 @@ public class MaxHeapPriorityQueueTest {
         System.out.println("remove");
         MaxHeapPriorityQueue instance = null;
         instance.remove();
-        
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -83,7 +86,8 @@ public class MaxHeapPriorityQueueTest {
         boolean expResult = false;
         boolean result = instance.isEmpty();
         assertEquals(expResult, result);
-        
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
     
 }
