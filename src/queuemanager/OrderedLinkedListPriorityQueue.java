@@ -94,7 +94,8 @@ public class OrderedLinkedListPriorityQueue<T> implements PriorityQueue<T>  {
             if (!result.equals("[")) {
                 result += ", ";
             }
-            result += current.getListItem().toString();
+            result += "(" + current.getListItem().toString() + ", ";
+            result += current.getItemPriority() + ")";
             current = current.getNext();
         }
         result += "]";

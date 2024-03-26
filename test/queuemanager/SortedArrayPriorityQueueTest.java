@@ -82,7 +82,7 @@ public class SortedArrayPriorityQueueTest {
      * Test of isEmpty method, of class SortedArrayPriorityQueue.
      */
     @Test
-    public void testIsEmpty() throws QueueOverflowException {
+    public void testIsEmpty() throws Exception {
         System.out.println("isEmpty");
         instance.add("item", 1);
         boolean expResult = false;
@@ -95,7 +95,7 @@ public class SortedArrayPriorityQueueTest {
      * Test of toString method, of class SortedArrayPriorityQueue.
      */
     @Test
-    public void testToString() throws QueueOverflowException{
+    public void testToString() throws Exception{
         System.out.println("toString");
         instance.add("item1", 10);
         instance.add("item2", 5);

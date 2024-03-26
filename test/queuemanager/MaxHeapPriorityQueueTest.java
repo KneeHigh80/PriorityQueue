@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
+
 package queuemanager;
 
 import org.junit.After;
@@ -17,6 +14,8 @@ import static org.junit.Assert.*;
  */
 public class MaxHeapPriorityQueueTest {
     
+    private MaxHeapPriorityQueue<String> instance;
+    
     public MaxHeapPriorityQueueTest() {
     }
     
@@ -30,6 +29,7 @@ public class MaxHeapPriorityQueueTest {
     
     @Before
     public void setUp() {
+        instance = new MaxHeapPriorityQueue(8);
     }
     
     @After
@@ -42,12 +42,13 @@ public class MaxHeapPriorityQueueTest {
     @Test
     public void testAdd() throws Exception {
         System.out.println("add");
-        Object item = null;
-        int priority = 0;
-        MaxHeapPriorityQueue instance = null;
-        instance.add(item, priority);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.add("item1", 1);
+        assertEquals("item1", instance.head());
+        instance.add("item2", 2);
+        assertEquals("item2", instance.head());
+        
+        
+        
     }
 
     /**
@@ -56,12 +57,14 @@ public class MaxHeapPriorityQueueTest {
     @Test
     public void testHead() throws Exception {
         System.out.println("head");
-        MaxHeapPriorityQueue instance = null;
-        Object expResult = null;
+        System.out.println("add");
+        instance.add("item1", 1);
+        instance.add("item2", 2);
+        assertEquals("item2", instance.head());
+        instance.add("item3", 3);
+        Object expResult = "item3";
         Object result = instance.head();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -70,24 +73,38 @@ public class MaxHeapPriorityQueueTest {
     @Test
     public void testRemove() throws Exception {
         System.out.println("remove");
-        MaxHeapPriorityQueue instance = null;
+        instance.add("item1", 10);
+        instance.add("item2", 20);
+        instance.add("item3", 30);
+        assertEquals("item3", instance.head());        
         instance.remove();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("item2", instance.head());
     }
 
     /**
      * Test of isEmpty method, of class MaxHeapPriorityQueue.
      */
     @Test
-    public void testIsEmpty() {
+    public void testIsEmpty() throws Exception {
         System.out.println("isEmpty");
-        MaxHeapPriorityQueue instance = null;
+        instance.add("item1", 1);        
         boolean expResult = false;
         boolean result = instance.isEmpty();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    }
+    
+    /**
+     * Test of toString method, of class MaxHeapPriorityQueue.
+     */
+    @Test
+    public void testToString() throws Exception{
+        System.out.println("toString");
+        instance.add("item1", 1);
+        instance.add("item2", 2);
+        instance.add("item3", 3);
+        String expResult = "[(item3, 3), (item1, 1), (item2, 2)]";
+        String result = instance.toString();
+        assertEquals(expResult, result);
     }
     
 }

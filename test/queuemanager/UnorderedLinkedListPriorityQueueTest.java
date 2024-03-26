@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
+
 package queuemanager;
 
 import org.junit.After;
@@ -17,6 +14,8 @@ import static org.junit.Assert.*;
  */
 public class UnorderedLinkedListPriorityQueueTest {
     
+    private UnorderedLinkedListPriorityQueue<String> instance;
+    
     public UnorderedLinkedListPriorityQueueTest() {
     }
     
@@ -30,6 +29,7 @@ public class UnorderedLinkedListPriorityQueueTest {
     
     @Before
     public void setUp() {
+        instance = new UnorderedLinkedListPriorityQueue<>();
     }
     
     @After
@@ -42,12 +42,10 @@ public class UnorderedLinkedListPriorityQueueTest {
     @Test
     public void testAdd() throws Exception {
         System.out.println("add");
-        Object item = null;
-        int priority = 0;
-        UnorderedLinkedListPriorityQueue instance = new UnorderedLinkedListPriorityQueue();
-        instance.add(item, priority);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.add("item1", 1);
+        assertEquals("item1", instance.head());
+        instance.add("item2", 2);
+        assertEquals("item2", instance.head());
     }
 
     /**
@@ -56,12 +54,12 @@ public class UnorderedLinkedListPriorityQueueTest {
     @Test
     public void testHead() throws Exception {
         System.out.println("head");
-        UnorderedLinkedListPriorityQueue instance = new UnorderedLinkedListPriorityQueue();
-        Object expResult = null;
+        instance.add("item1", 5);
+        instance.add("item2", 10);
+        instance.add("item3", 15);
+        Object expResult = "item3";
         Object result = instance.head();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -70,38 +68,38 @@ public class UnorderedLinkedListPriorityQueueTest {
     @Test
     public void testRemove() throws Exception {
         System.out.println("remove");
-        UnorderedLinkedListPriorityQueue instance = new UnorderedLinkedListPriorityQueue();
+        instance.add("item1", 5);
+        instance.add("item2", 10);
+        instance.add("item3", 15);
+        assertEquals("item3", instance.head());
         instance.remove();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("item2", instance.head());
     }
 
     /**
      * Test of isEmpty method, of class UnorderedLinkedListPriorityQueue.
      */
     @Test
-    public void testIsEmpty() {
+    public void testIsEmpty() throws Exception {
         System.out.println("isEmpty");
-        UnorderedLinkedListPriorityQueue instance = new UnorderedLinkedListPriorityQueue();
+        instance.add("item", 1);
         boolean expResult = false;
         boolean result = instance.isEmpty();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of toString method, of class UnorderedLinkedListPriorityQueue.
      */
     @Test
-    public void testToString() {
+    public void testToString() throws Exception{
         System.out.println("toString");
-        UnorderedLinkedListPriorityQueue instance = new UnorderedLinkedListPriorityQueue();
-        String expResult = "";
+        instance.add("item1", 1);
+        instance.add("item2", 2);
+        instance.add("item3", 3);
+        String expResult = "[(item1, 1), (item2, 2), (item3, 3)]";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

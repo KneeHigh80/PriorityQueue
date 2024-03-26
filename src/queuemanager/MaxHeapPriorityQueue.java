@@ -155,5 +155,18 @@ public class MaxHeapPriorityQueue<T> implements PriorityQueue<T>{
         storage = newStorage;
         capacity = newSize;
     }
+    
+    @Override
+    public String toString() {
+        String result = "[";
+        for (int i = 0; i <= tailIndex; i++) {
+            if (i > 0) {
+                result = result + ", ";
+            }
+            result = result + storage[i];
+        }
+        result = result + "]";
+        return result;
+    }
 
 }

@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
+
 package queuemanager;
 
 import org.junit.After;
@@ -17,6 +14,8 @@ import static org.junit.Assert.*;
  */
 public class OrderedLinkedListPriorityQueueTest {
     
+    private OrderedLinkedListPriorityQueue<String> instance;
+    
     public OrderedLinkedListPriorityQueueTest() {
     }
     
@@ -30,10 +29,12 @@ public class OrderedLinkedListPriorityQueueTest {
     
     @Before
     public void setUp() {
+        instance = new OrderedLinkedListPriorityQueue<>();
     }
     
     @After
     public void tearDown() {
+        instance = null;
     }
 
     /**
@@ -42,12 +43,10 @@ public class OrderedLinkedListPriorityQueueTest {
     @Test
     public void testAdd() throws Exception {
         System.out.println("add");
-        Object item = null;
-        int priority = 0;
-        OrderedLinkedListPriorityQueue instance = new OrderedLinkedListPriorityQueue();
-        instance.add(item, priority);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.add("item1", 10);
+        assertEquals("item1", instance.head());
+        instance.add("item2", 20);
+        assertEquals("item2", instance.head());
     }
 
     /**
@@ -56,12 +55,12 @@ public class OrderedLinkedListPriorityQueueTest {
     @Test
     public void testHead() throws Exception {
         System.out.println("head");
-        OrderedLinkedListPriorityQueue instance = new OrderedLinkedListPriorityQueue();
-        Object expResult = null;
+        instance.add("item1", 2);
+        instance.add("item2", 6);
+        instance.add("item3", 4);
+        Object expResult = "item2";
         Object result = instance.head();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -70,38 +69,39 @@ public class OrderedLinkedListPriorityQueueTest {
     @Test
     public void testRemove() throws Exception {
         System.out.println("remove");
-        OrderedLinkedListPriorityQueue instance = new OrderedLinkedListPriorityQueue();
+        instance.add("itemremaining", 1);
+        instance.add("itemtoberemoved", 10);
+        assertEquals("itemtoberemoved", instance.head());
         instance.remove();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("itemremaining", instance.head());
     }
 
     /**
      * Test of isEmpty method, of class OrderedLinkedListPriorityQueue.
      */
     @Test
-    public void testIsEmpty() {
+    public void testIsEmpty() throws Exception {
         System.out.println("isEmpty");
-        OrderedLinkedListPriorityQueue instance = new OrderedLinkedListPriorityQueue();
+        instance.add("item", 1);
         boolean expResult = false;
         boolean result = instance.isEmpty();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of toString method, of class OrderedLinkedListPriorityQueue.
      */
     @Test
-    public void testToString() {
+    public void testToString() throws Exception{
         System.out.println("toString");
-        OrderedLinkedListPriorityQueue instance = new OrderedLinkedListPriorityQueue();
-        String expResult = "";
+        instance.add("item1", 1);
+        instance.add("item2", 2);
+        instance.add("item3", 3);
+        String expResult = "[(item3, 3), (item2, 2), (item1, 1)]";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-    
 }
+//a item1 1
+//a item2 2
+//a item3 3
