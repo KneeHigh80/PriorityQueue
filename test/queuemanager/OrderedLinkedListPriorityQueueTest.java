@@ -102,6 +102,3 @@ public class OrderedLinkedListPriorityQueueTest {
         assertEquals(expResult, result);
     }
 }
-//a item1 1
-//a item2 2
-//a item3 3

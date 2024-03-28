@@ -60,8 +60,6 @@ public class SortedArrayPriorityQueue<T> implements PriorityQueue<T> {
         if (tailIndex + 1 >= capacity) {
             //Resizing (doubleing) the array if it reached capacity
             resize();
-            // just a check for me to see when the array doubles
-            System.out.println("Doubling Array size");
         }tailIndex++;
         /* Scan backwards looking for insertion point */
         int i = tailIndex;
@@ -72,17 +70,7 @@ public class SortedArrayPriorityQueue<T> implements PriorityQueue<T> {
         storage[i] = new PriorityItem<>(item, priority);
     
     }
-    // function for resizing or doubleing the array
-    private void resize() {
-        //local variable takes current arraysize and doubles it
-        int newSize = capacity * 2;
-        //new container where we will copy the items from old container to
-        Object[] newStorage = new Object[newSize];
-        System.arraycopy(storage, 0, newStorage, 0, storage.length);
-        storage = newStorage;
-        capacity = newSize;
-    }
-
+    
     @Override
     public void remove() throws QueueUnderflowException {
         if (isEmpty()) {
@@ -111,5 +99,16 @@ public class SortedArrayPriorityQueue<T> implements PriorityQueue<T> {
         }
         result = result + "]";
         return result;
+    }
+    
+    // function for resizing or doubleing the array
+    private void resize() {
+        //local variable takes current arraysize and doubles it
+        int newSize = capacity * 2;
+        //new container where we will copy the items from old container to
+        Object[] newStorage = new Object[newSize];
+        System.arraycopy(storage, 0, newStorage, 0, storage.length);
+        storage = newStorage;
+        capacity = newSize;
     }
 }
